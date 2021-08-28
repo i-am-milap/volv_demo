@@ -172,6 +172,28 @@ class _SignInState extends State<SignIn> {
                     ],
                   ),
                 ),
+                SizedBox(height: 16.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Don't have an account?",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 16.0,
+                        color: Colors.black26,
+                      ),
+                    ),
+                    Text(
+                      "Sign Up",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 16.0,
+                        color: AppColors.black,
+                      ),
+                    ),
+                  ],
+                )
               ],
             ),
           ),
