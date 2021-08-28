@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -190,28 +189,22 @@ class _SignInState extends State<SignIn> {
     try {
       var res = await _googleSignIn.signIn();
       print(res);
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => Home()),
-      );
+      if (res != null) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Home()),
+        );
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            behavior: SnackBarBehavior.floating,
+            duration: Duration(seconds: 3),
+            content: Text('Signin Cancled'),
+          ),
+        );
+      }
     } catch (error) {
       print(error);
     }
-
-    // // Obtain the auth details from the request
-    // final GoogleSignInAuthentication googleAuth =
-    //     await googleUser.authentication;
-
-    // // Create a new credential
-    // final credential = GoogleAuthProvider.credential(
-    //   accessToken: googleAuth.accessToken,
-    //   idToken: googleAuth.idToken,
-    // );
-
-    // // Once signed in, return the UserCredential
-    // UserCredential _credential =
-    //     await FirebaseAuth.instance.signInWithCredential(credential);
-    // print(_credential);
-    // return _credential;
   }
 }
