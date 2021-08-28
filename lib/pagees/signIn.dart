@@ -213,7 +213,7 @@ class _SignInState extends State<SignIn> {
       var res = await _googleSignIn.signIn();
       print(res);
       if (res != null) {
-        Navigator.push(
+        Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => Home()),
         );
