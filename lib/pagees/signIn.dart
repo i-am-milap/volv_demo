@@ -184,6 +184,7 @@ class _SignInState extends State<SignIn> {
                         color: Colors.black26,
                       ),
                     ),
+                    SizedBox(width: 8.0),
                     Text(
                       "Sign Up",
                       style: TextStyle(
